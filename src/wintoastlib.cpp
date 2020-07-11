@@ -648,7 +648,7 @@ INT64 WinToast::showToast(_In_ const WinToastTemplate& toast, _In_ std::shared_p
 				HRESULT hr = notificationManager->GetTemplateContent(ToastTemplateType(toast.type()), &xmlDocument);
                 if (SUCCEEDED(hr)) {
                     for (std::size_t i = 0, fieldsCount = toast.textFieldsCount(); i < fieldsCount && SUCCEEDED(hr); i++) {
-                        hr = setTextFieldHelper(xmlDocument.Get(), toast.textField(WinToastTemplate::TextField(i)), i);
+                        hr = setTextFieldHelper(xmlDocument.Get(), toast.textField(WinToastTemplate::TextField(i)), static_cast<UINT32>(i));
                     }
 
                     // Modern feature are supported Windows > Windows 10
