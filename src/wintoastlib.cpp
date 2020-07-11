@@ -26,6 +26,7 @@
 
 #pragma comment(lib,"shlwapi")
 #pragma comment(lib,"user32")
+#pragma comment(lib,"psapi.lib")
 
 #ifdef NDEBUG
     #define DEBUG_MSG(str) do { } while ( false )
@@ -207,7 +208,7 @@ namespace Util {
     }
 
     inline HRESULT defaultExecutablePath(_In_ WCHAR* path, _In_ DWORD nSize = MAX_PATH) {
-        DWORD written = GetModuleFileNameExW(GetCurrentProcess(), nullptr, path, nSize);
+        DWORD written = GetModuleFileNameEx(GetCurrentProcess(), nullptr, path, nSize);
         DEBUG_MSG("Default executable path: " << path);
         return (written > 0) ? S_OK : E_FAIL;
     }
