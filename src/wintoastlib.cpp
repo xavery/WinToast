@@ -19,10 +19,27 @@
  */
 
 #include "wintoastlib.h"
-#include <memory>
-#include <assert.h>
-#include <unordered_map>
+
 #include <array>
+#include <cassert>
+#include <iostream>
+#include <unordered_map>
+
+#include <ShObjIdl.h>
+#include <ShlObj.h>
+#include <propkey.h>
+#include <propvarutil.h>
+#include <psapi.h>
+#include <strsafe.h>
+
+#include <wrl/event.h>
+#include <wrl/implements.h>
+
+using namespace Microsoft::WRL;
+using namespace ABI::Windows::Data::Xml::Dom;
+using namespace ABI::Windows::Foundation;
+using namespace ABI::Windows::UI::Notifications;
+using namespace Windows::Foundation;
 
 #pragma comment(lib,"shlwapi")
 #pragma comment(lib,"user32")
